@@ -1,6 +1,9 @@
 module.exports = {
   root: true,
-  extends: 'eslint-config-airbnb-base',
+  extends: [
+    'eslint-config-airbnb-base',
+    'plugin:import/recommended'
+  ],
   env: {
     es2020: true,
     jest: true,
@@ -52,7 +55,19 @@ module.exports = {
     ],
     'no-underscore-dangle': 0,
     'no-trailing-spaces': 'off',
-    'no-template-curly-in-string': 'off'
-  }
+    'no-template-curly-in-string': 'off',
+    'import/order': [
+      'error',
+      {
+        'groups': ['builtin', 'external', 'internal', 'index', 'parent', 'sibling'],
+        'pathGroupsExcludedImportTypes': ['builtin'],
+        'alphabetize': {
+          'order': 'asc',
+          'caseInsensitive': true
+        },
+        'newlines-between': 'never'
+      }
+    ]
+  },
 };
-  
+
